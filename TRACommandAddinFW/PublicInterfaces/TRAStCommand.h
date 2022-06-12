@@ -123,7 +123,7 @@ class ExportedByTRACommandAddinMod TRAStCommand: public CATStateCommand
 
 	  void CreateLine();
 
-	  void ColourChange(CATISpecObject_var spSpecObject);
+	  void ColourChange(CATISpecObject_var spSpecObject, CATUnicodeString color);
 
       void InsertInProceduralView(CATISpecObject_var &ispSpecObject);
 

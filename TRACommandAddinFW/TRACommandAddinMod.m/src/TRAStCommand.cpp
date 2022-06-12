@@ -514,12 +514,18 @@ void TRAStCommand::CreateLine()
 	CATISpecObject_var spLineObj1 = spLine1;
 	InsertInProceduralView(spLineObj1);
 
-	CATDlgRadioButton* pRadioBttn = NULL;
-		pRadioBttn = _pWindow->GetRadioButton();
+	CATDlgRadioButton* pRadioBttn1 = NULL;
+	CATDlgRadioButton* pRadioBttn2 = NULL;
+		pRadioBttn1 = _pWindow->GetRadioButton1();
+		pRadioBttn2 = _pWindow->GetRadioButton2();
 
-		if (pRadioBttn->GetState() == CATDlgCheck)
+		if (pRadioBttn1->GetState() == CATDlgCheck)
 		{
-			ColourChange(spLineObj1);
+			ColourChange(spLineObj1, "Green");
+		}
+		if (pRadioBttn2->GetState() == CATDlgCheck)
+		{
+			ColourChange(spLineObj1, "Red");
 		}
 	
 
@@ -527,9 +533,13 @@ void TRAStCommand::CreateLine()
 	CATISpecObject_var spLineObj2 = spLine2;
 	InsertInProceduralView(spLineObj2);
 
-	if (pRadioBttn->GetState() == CATDlgCheck)
+	if (pRadioBttn1->GetState() == CATDlgCheck)
 		{
-			ColourChange(spLineObj2);
+			ColourChange(spLineObj2, "Green");
+		}
+		if (pRadioBttn2->GetState() == CATDlgCheck)
+		{
+			ColourChange(spLineObj2, "Red");
 		}
 
 
@@ -537,7 +547,7 @@ void TRAStCommand::CreateLine()
 
 }
 
-void TRAStCommand::ColourChange(CATISpecObject_var spSpecObject)
+void TRAStCommand::ColourChange(CATISpecObject_var spSpecObject, CATUnicodeString color)
 {
 
 
@@ -550,10 +560,20 @@ void TRAStCommand::ColourChange(CATISpecObject_var spSpecObject)
 
   // The Line becomes red 
  // PropTypeOnLine = CATVPColor ;
+  if(color == "Red")
+  {
+  MyPropertyOnLine.SetColor(255,0,0);
+  rc = pIPropertiesOnLine->SetPropertiesAtt(MyPropertyOnLine,
+                                                PropTypeOnLine,
+                                                GeomTypeOnLine);
+  }
+  if(color == "Green")
+  {
   MyPropertyOnLine.SetColor(0,255,0);
   rc = pIPropertiesOnLine->SetPropertiesAtt(MyPropertyOnLine,
                                                 PropTypeOnLine,
                                                 GeomTypeOnLine);
+  }
 
 }
 

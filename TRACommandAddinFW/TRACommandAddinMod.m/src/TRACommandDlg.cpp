@@ -46,6 +46,8 @@ TRACommandDlg::TRACommandDlg() :
  _pointSelectorList002 = NULL;
  _pointSelectorList003 = NULL;
  _pCtxMenuClear = NULL;
+ _RadioButton009 = NULL;
+ _RadioButton010 = NULL;
 //END CAA2 WIZARD CONSTRUCTOR INITIALIZATION SECTION
 }
 
@@ -66,6 +68,8 @@ TRACommandDlg::~TRACommandDlg()
  _pointSelectorList002 = NULL;
  _pointSelectorList003 = NULL;
  _pCtxMenuClear = NULL;
+ _RadioButton009 = NULL;
+ _RadioButton010 = NULL;
 //END CAA2 WIZARD DESTRUCTOR DECLARATION SECTION
 }
 
@@ -108,7 +112,10 @@ _pCtxMenuClear = new CATDlgContextualMenu(_pointSelectorList002, CATString("CtxM
 _pCtxMenuClear = new CATDlgContextualMenu(_pointSelectorList003, CATString("CtxMenuClear"), CATDlgCtxEmpty);
 
 _RadioButton009 = new CATDlgRadioButton(this, "Green");
-_RadioButton009 -> SetGridConstraints(4, 1, 1, 1, CATGRID_4SIDES);
+_RadioButton009 -> SetGridConstraints(3, 0, 1, 1, CATGRID_4SIDES);
+
+_RadioButton010 = new CATDlgRadioButton(this, "Red");
+_RadioButton010 -> SetGridConstraints(3, 1, 1, 1, CATGRID_4SIDES);
 
 
 //END CAA2 WIZARD WIDGET CONSTRUCTION SECTION
@@ -226,8 +233,13 @@ void TRACommandDlg::ClearSelect(CATUnicodeString iSelectorListName)
 }
 
 
-CATDlgRadioButton* TRACommandDlg::GetRadioButton()
+CATDlgRadioButton* TRACommandDlg::GetRadioButton1()
 { 
 	return _RadioButton009;
+}
+
+CATDlgRadioButton* TRACommandDlg::GetRadioButton2()
+{ 
+	return _RadioButton010;
 }
 //}

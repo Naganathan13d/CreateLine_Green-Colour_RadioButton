@@ -69,7 +69,8 @@ class ExportedByTRACommandAddinMod TRACommandDlg: public CATDlgDialog
 
   CATDlgContextualMenu* GetCtxMenuClear(){ return _pCtxMenuClear; }
 
-  CATDlgRadioButton* GetRadioButton();
+  CATDlgRadioButton* GetRadioButton1();
+  CATDlgRadioButton* GetRadioButton2();
 
   void ClearSelect(CATUnicodeString iSelectorListName);
 
@@ -93,6 +94,7 @@ class ExportedByTRACommandAddinMod TRACommandDlg: public CATDlgDialog
  CATDlgContextualMenu * _pCtxMenuClear;
 
  CATDlgRadioButton*      _RadioButton009;
+ CATDlgRadioButton*      _RadioButton010;
 //END CAA2 WIZARD WIDGET DECLARATION SECTION
 
 
